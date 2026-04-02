@@ -58,5 +58,32 @@
         printf("%p\n", &n);
     }
    ```
+   To illustrate the use of `*` operator, consider the following:
+   ```pointer.c
+    // Stores and prints an integer's address
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+        int n = 50;
+        int *p = &n;
+        printf("%p\n", p);
+    }
+   ```
+
+3. Pointer is usually stored as an 8-byte value.
+
+---
+
+**Strings**
+
+1. 
 
    
+
+   
+
+
+
+
