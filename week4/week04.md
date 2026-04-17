@@ -78,7 +78,71 @@
 
 **Strings**
 
-1. 
+1. Modify your code as follows:
+   ```
+   // Prints a string
+   
+   #include <cs50.h>
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       string s = "HI!";
+       printf("%s\n", s);
+   }
+   ```
+   Notice that a string `s` is printed.
+
+2. Recall that a string is simply an array of characters.
+   `string s = "HI!"1` can be represented as follows:
+   ![](https://cs50.harvard.edu/x/notes/4/cs50Week4Slide085.png)
+
+3. `s` is just a pointing towards the beginning of the string.
+4. Modify your code as follows:
+   ```
+   // Prints a string's address as well the addresses of its chars
+   
+   #include <cs50.h>
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       string s = "HI!";
+       printf("%p\n", s);
+       printf("%p\n", &s[0]);
+       printf("%p\n", &s[1]);
+       printf("%p\n", &s[2]);
+       printf("%p\n", &s[3]);
+   }
+   ```
+   Notice that the above code prints the memory locatoins of each character in
+   the string `s`.
+   The `&` symbol is used to show the address of each element of the string.
+
+5. The original C code representing the string would look in the following way:
+   ```
+   // Declares a string without CS50 Library
+   
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       char *s = "HI!";
+       printf("%s\n", s);
+   }
+   ```
+
+---
+
+**Pointer Arithmetic**
+
+1. Pointer arithmetic is allowing doing math on different locations in memory.
+
+---
+
+**String Comparison**
+
+1. A string of characters is _simply_ an array of chararters identified by the location of its first byte.
 
    
 
