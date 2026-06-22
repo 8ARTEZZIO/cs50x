@@ -143,6 +143,65 @@
 **String Comparison**
 
 1. A string of characters is _simply_ an array of chararters identified by the location of its first byte.
+2. The following code compare integers:
+
+   ```compare.c
+   // Compares two integers
+
+   #include <cs50.h>
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       // Get two integers
+       int i = get_int("i: ");
+       int j = get_int("j: ");
+   
+       // Compare integers
+       if (i == j)
+       {
+           printf("Same\n");
+       }
+       else
+       {
+           printf("Different\n");
+       }
+   }
+   ```
+   But if there's a string, however, the code cannot use `==` operator.
+   In this case the `==` will compare memory locations but not the strings themselves.
+3. The following code will NOT work with strings:
+   
+   ```compare_strings.c
+   // Compares two strings' addresses
+
+   #include <cs50.h>
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       // Get two strings
+       char *s = get_string("s: ");
+       char *t = get_string("t: ");
+   
+       // Compare strings' addresses
+       if (s == t)
+       {
+           printf("Same\n");
+       }
+       else
+       {
+           printf("Different\n");
+       }
+   }
+   ```
+   E.g. `HI!` for both strings will output `Different\n`.
+4. To understand why are these strings different we need to understand how the memory works.
+   Each string has it's own address.
+
+   ![](https://cs50.harvard.edu/x/notes/4/cs50Week4Slide115.png)
+   
+   
 
    
 
