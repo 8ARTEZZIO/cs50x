@@ -255,8 +255,6 @@
 2. The C language has a built-in function to copy strings called `strcpy`.
 
    ```strcpy.c
-   
-   
    // Capitalizes a copy of a string using strcpy
    
    #include <ctype.h>
@@ -286,7 +284,50 @@
    }
    ```
 
-3. Both 
+3. The function `malloc` returns `NULL` is something goes wrong.
+   Let's edit our code to catch this error.
+   I will also add a `free` function to empty the memory block
+   after running the code.
+
+   ```copy_final.c
+   // Capitalizes a copy of a string using strcpy
+   
+   #include <ctype.h>
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <string.h>
+   
+   int main(void)
+   {
+       // Get a string
+       char s[50];
+       printf("s: \n");
+       scanf("%s", s);
+   
+       // Allocate memory for another string
+       char *t = malloc(strlen(s) + 1);
+       if (t == NULL)
+       {
+          return 1;
+       }
+   
+       // Copy string into memory
+       strcpy(t, s);
+   
+       // Capitalize copy
+       if (strlen(s) > 0)
+       {
+          t[0] = toupper(t[0]);
+       }
+   
+       // Print strings
+       printf("s: %s\n", s);
+       printf("t: %s\n", t);
+
+      // Free the memory
+      free(t);
+      return 0;
+   }
    
 
 
