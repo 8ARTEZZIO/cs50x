@@ -328,6 +328,17 @@
       free(t);
       return 0;
    }
+
+---
+
+**Valgrind**
+
+1. _Valgrind_ is a tool that allows the programmer to check if there are any
+   leaks in memory through checking memory heap blocks.
+
+2. 
+
+
    
 
 
