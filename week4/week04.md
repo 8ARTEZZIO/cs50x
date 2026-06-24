@@ -143,7 +143,8 @@
 **String Comparison**
 
 1. A string of characters is _simply_ an array of chararters identified by the location of its first byte.
-2. The following code compare integers:
+2. 
+3. The following code compare integers:
 
    ```compare.c
    // Compares two integers
@@ -170,7 +171,8 @@
    ```
    But if there's a string, however, the code cannot use `==` operator.
    In this case the `==` will compare memory locations but not the strings themselves.
-3. The following code will NOT work with strings:
+   
+4. The following code will NOT work with strings:
    
    ```compare_strings.c
    // Compares two strings' addresses
@@ -196,12 +198,54 @@
    }
    ```
    E.g. `HI!` for both strings will output `Different\n`.
-4. To understand why are these strings different we need to understand how the memory works.
+   
+5. To understand why are these strings different we need to understand how the memory works.
    Each string has it's own address.
 
    ![](https://cs50.harvard.edu/x/notes/4/cs50Week4Slide115.png)
+
+6. By using `strcmp` we can correct our code.
+
+---
+
+**Copying and malloc**
+
+1. We can use the following code to create an authentic copy of our string as follows:
+
+   ```copy.c
+   // Capitalizes a copy of a string
    
+   #include <cs50.h>
+   #include <ctype.h>
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <string.h>
    
+   int main(void)
+   {
+       // Get a string
+       char *s = get_string("s: ");
+   
+       // Allocate memory for another string
+       char *t = malloc(strlen(s) + 1);
+   
+       // Copy string into memory, including '\0'
+       for (int i = 0, n = strlen(s); i <= n; i++)
+       {
+           t[i] = s[i];
+       }
+   
+       // Capitalize copy
+       t[0] = toupper(t[0]);
+   
+       // Print strings
+       printf("s: %s\n", s);
+       printf("t: %s\n", t);
+   }
+   ```
+   The `malloc(strlen(s) + 1`
+   
+
 
    
 
