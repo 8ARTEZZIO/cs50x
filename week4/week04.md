@@ -183,8 +183,12 @@
    int main(void)
    {
        // Get two strings
-       char *s = get_string("s: ");
-       char *t = get_string("t: ");
+       char s[50];
+       printf("s: \n");
+       scanf("%s", s);
+       char t[50];
+       printf("t: \n");
+       scanf("%s", t);
    
        // Compare strings' addresses
        if (s == t)
@@ -215,7 +219,6 @@
    ```copy.c
    // Capitalizes a copy of a string
    
-   #include <cs50.h>
    #include <ctype.h>
    #include <stdio.h>
    #include <stdlib.h>
@@ -224,7 +227,9 @@
    int main(void)
    {
        // Get a string
-       char *s = get_string("s: ");
+       char s[50];
+       printf("s: \n");
+       scanf("%s", s);
    
        // Allocate memory for another string
        char *t = malloc(strlen(s) + 1);
@@ -243,7 +248,45 @@
        printf("t: %s\n", t);
    }
    ```
-   The `malloc(strlen(s) + 1`
+   The `malloc(strlen(s) + 1` creates a block o memory that is the length or string plus one.
+   And this allows the inclussion of the _null_ `\0` character.
+   The for loop assigns each value to that same location on the string `t`.
+
+2. The C language has a built-in function to copy strings called `strcpy`.
+
+   ```strcpy.c
+   
+   
+   // Capitalizes a copy of a string using strcpy
+   
+   #include <ctype.h>
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <string.h>
+   
+   int main(void)
+   {
+       // Get a string
+       char s[50];
+       printf("s: \n");
+       scanf("%s", s);
+   
+       // Allocate memory for another string
+       char *t = malloc(strlen(s) + 1);
+   
+       // Copy string into memory
+       strcpy(t, s);
+   
+       // Capitalize copy
+       t[0] = toupper(t[0]);
+   
+       // Print strings
+       printf("s: %s\n", s);
+       printf("t: %s\n", t);
+   }
+   ```
+
+3. Both 
    
 
 
