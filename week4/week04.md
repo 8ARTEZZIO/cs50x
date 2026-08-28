@@ -357,7 +357,47 @@
        free(x);
    }
    ```
+
+---
+
+**Garbage Values**
+
+1. Whenever we are trying to access a specific location in a memory,
+   it is a good (and necessary) practice to initialize memory first.
+   There is no guarantee that requested block of memory will be empty.
+
+2. It is very possible that the memory you allocated was previously utilized by
+   computer. It is so called _junk_ or _garbage value_.
+
+3. To show it in practice we can iterate through a random chunk of memory:
+
+   ```mem.c
+   #include <stdio.h>
+   #include <stdlib.h>
    
+   int main(void)
+   {
+       int scores[1024];
+       for (int i = 0; i < 1024; i++)
+       {
+           printf("%i\n", scores[i]);
+       }
+   }
+   ```
+   Not every value is equal 0.
+
+---
+
+**Pointer Fun with Binky**
+
+https://www.youtube.com/watch?v=5VnDaHBi8dM
+
+---
+
+**Swapping**
+
+1. 
+
 
 
    
