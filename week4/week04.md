@@ -284,7 +284,7 @@
    }
    ```
 
-3. The function `malloc` returns `NULL` is something goes wrong.
+3. The function `malloc` returns `NULL` if something goes wrong.
    Let's edit our code to catch this error.
    I will also add a `free` function to empty the memory block
    after running the code.
@@ -335,8 +335,29 @@
 
 1. _Valgrind_ is a tool that allows the programmer to check if there are any
    leaks in memory through checking memory heap blocks.
+   It especially checks if you used the `free` correctly.
 
-2. 
+2. If you type `make memory` followed by `valgrind ./memory`, you will get a report
+   from valgrind that'll report where the memory has been lost.
+
+3. Example usage of `valgrind`:
+   
+   ```example.c
+   // Demonstrates memory errors via valgrind
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   
+   int main(void)
+   {
+       int *x = malloc(3 * sizeof(int));
+       x[0] = 72;
+       x[1] = 73;
+       x[2] = 33;
+       free(x);
+   }
+   ```
+   
 
 
    
