@@ -422,13 +422,47 @@ https://www.youtube.com/watch?v=5VnDaHBi8dM
        b = tmp;
    }
    ```
+   Out:
+   `x is 1, y is 2
+   x is 1, y is 2`
 
    In this scenario the values will fail to swap.
    The reason - scope.
+   The values x, y initiated inside of the main function
+   are locked inside of that function.
 
-2. 
+2. `main` and `swap` have two separate _frames_ or areas of memory
+   To make it work we'll have to use _pointers_
+
+   ```swap.c
+   // Swaps two integers using pointers
+   
+   #include <stdio.h>
+   
+   void swap(int *a, int *b);
+   
+   int main(void)
+   {
+       int x = 1;
+       int y = 2;
+   
+       printf("x is %i, y is %i\n", x, y);
+       swap(&x, &y);
+       printf("x is %i, y is %i\n", x, y);
+   }
+   
+   void swap(int *a, int *b)
+   {
+       int tmp = *a;
+       *a = *b;
+       *b = tmp;
+   }
+   ```
+
+   Basically, variables are not passed by value but by !_REFERENCE_!
       
-
+   ![memory pointers](https://cs50.harvard.edu/x/notes/4/cs50Week4Slide198.png)
+   
 
 
    
