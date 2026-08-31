@@ -467,6 +467,24 @@ https://www.youtube.com/watch?v=5VnDaHBi8dM
 
 **Overflow**
 
+A buffer overflow is a situation when the memory space gets overflown
+and the code is not written in order to prevent it.
+It happens with codes like C/C++.
+It is possible to control it and make an use of it.
+There are two types of it:
+-stack overflow,
+-heap overflow.
+
+Stack overflow happens when we use more memory than it was designer originally.
+Heap overflow happens when we overflow the heap, touching areas of memory you
+are not supposed to.
+
+---
+
+**scanf**
+
+1. `scanf` is a built-in function that gets the user's input
+2. the `get_int`
 
    
 
