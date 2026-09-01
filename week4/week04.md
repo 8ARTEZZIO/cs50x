@@ -556,6 +556,38 @@ are not supposed to.
        return 0;
    }
    ```
+
+---
+
+**File I/O**
+
+1. *This module will be discussed further in the next lessons
+2. The example code of I/O by using CSV formatted files
+   ```copy.c  
+   // Copies a file
+   
+   #include <stdio.h>
+   
+   typedef unsigned char BYTE;
+   
+   int main(int argc, char *argv[])
+   {
+       FILE *src = fopen(argv[1], "rb");
+       FILE *dst = fopen(argv[2], "wb");
+   
+       BYTE b;
+   
+       while (fread(&b, sizeof(b), 1, src) != 0)
+       {
+           fwrite(&b, sizeof(b), 1, dst);
+       }
+   
+       fclose(dst);
+       fclose(src);
+   }
+   ```
+
+
    
 
 
