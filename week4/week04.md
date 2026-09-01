@@ -484,7 +484,82 @@ are not supposed to.
 **scanf**
 
 1. `scanf` is a built-in function that gets the user's input
-2. the `get_int`
+2. the `get_int` implementation:
+   ```get_int.c
+   #include <stdio.h>
+
+   int get_int(char *str);
+   
+   
+   int main() {
+       printf("Test\n");
+       int n = get_int("Number: ");
+   
+       printf("%d\n", &n);
+   }
+   
+   
+   int get_int(char *str)
+   {
+       // create an integer;
+       int n;
+   
+       // ask the user to input some text
+       printf("%s", str);
+   
+       // get and save input
+       scanf("%i", &n);
+   
+       // return the equivalent n
+       return n;
+   
+   }
+   ```
+3. Attempting to reimplement `get_string` is not that simple:
+   ```str.c 
+   // Dangerously gets a string from user using scanf with array
+   
+   #include <stdio.h>
+   
+   int main(void)
+   {
+       char s[4]; 
+       printf("s: ");
+       scanf("%s", s);
+       printf("s: %s\n", s);
+   }
+   ```
+4. The more practical approach would be:
+   ```str_correct.c
+   #include <stdio.h>
+   #include <stdlib.h>
+   
+   
+   int main(void)
+   {
+       //inititate 4 bytes of space for a string
+       char *s = malloc(4);
+   
+       // return 1 if no correct input
+       if (s == NULL)
+       {
+           return 1;
+       }
+       // prompt user
+       printf("s: ");
+       // take the user's input
+       scanf("%s", s);
+       // print user's input
+       printf("s: %s\n", s);
+       // free the allocated space
+       free(s);
+       return 0;
+   }
+   ```
+   
+
+
+   
 
    
 
